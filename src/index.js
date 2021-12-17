@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import HelloWorld from './HelloWorld';
+import TestingMoreOnAbout from './TestingMoreOnAbout';
 
 import $ from './style.css';
 
@@ -14,18 +15,6 @@ const Home = () => (
 		</main>
 		<nav>
 			<Link to="/about">About</Link>
-		</nav>
-	</>
-);
-
-const TestingMoreOnAbout = () => (
-	<>
-		<main>
-			<h2>Who are we?</h2>
-			<p>That feels like an existential question, don't you think?</p>
-		</main>
-		<nav>
-			<Link to="/">Home</Link>
 		</nav>
 	</>
 );

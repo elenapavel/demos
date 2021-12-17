@@ -1889,10 +1889,22 @@ var HelloWorld = function HelloWorld() {
 };
 
 /* harmony default export */ const src_HelloWorld = (HelloWorld);
+;// CONCATENATED MODULE: ./src/TestingMoreOnAbout.js
+
+
+
+var TestingMoreOnAbout = function TestingMoreOnAbout() {
+  return /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("main", null, /*#__PURE__*/react.createElement("h2", null, "Who are we?"), /*#__PURE__*/react.createElement("p", null, "That feels like an existential question, don't you think?")), /*#__PURE__*/react.createElement("nav", null, /*#__PURE__*/react.createElement(Link, {
+    to: "/"
+  }, "Home")));
+};
+
+/* harmony default export */ const src_TestingMoreOnAbout = (TestingMoreOnAbout);
 ;// CONCATENATED MODULE: ./src/style.css
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const style = ({"test":"test_hHaiN","main":"main_vZzj7 test_hHaiN"});
 ;// CONCATENATED MODULE: ./src/index.js
+
 
 
 
@@ -1907,19 +1919,13 @@ var Home = function Home() {
   }, "About")));
 };
 
-var TestingMoreOnAbout = function TestingMoreOnAbout() {
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("main", null, /*#__PURE__*/react.createElement("h2", null, "Who are we?"), /*#__PURE__*/react.createElement("p", null, "That feels like an existential question, don't you think?")), /*#__PURE__*/react.createElement("nav", null, /*#__PURE__*/react.createElement(Link, {
-    to: "/"
-  }, "Home")));
-};
-
 (0,react_dom.render)( /*#__PURE__*/react.createElement(BrowserRouter, null, /*#__PURE__*/react.createElement(src_HelloWorld, null), /*#__PURE__*/react.createElement(Routes, null, /*#__PURE__*/react.createElement(Route, {
   path: "/",
   exact: true,
   element: /*#__PURE__*/react.createElement(Home, null)
 }), /*#__PURE__*/react.createElement(Route, {
   path: "/about",
-  element: /*#__PURE__*/react.createElement(TestingMoreOnAbout, null)
+  element: /*#__PURE__*/react.createElement(src_TestingMoreOnAbout, null)
 }))), document.getElementById('root'));
 })();
 
