@@ -58,3 +58,7 @@ module.exports = {
     }),
   ],
 };
+module.exports.optimization = {
+  sideEffects: false,
+  minimize: false,
+};

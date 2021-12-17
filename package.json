@@ -29,11 +29,5 @@
     "build": "webpack --mode=production",
     "export": "yarn clearcache && yarn build",
     "clearcache": "rm -rf node_modules/.cache"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
   }
 }
