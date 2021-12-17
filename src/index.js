@@ -18,7 +18,7 @@ const Home = () => (
 	</>
 );
 
-const About = () => (
+const TestingMoreOnAbout = () => (
 	<>
 		<main>
 			<h2>Who are we?</h2>
@@ -35,7 +35,7 @@ render(
 		<HelloWorld />
 		<Routes>
 			<Route path="/" exact element={<Home />} />
-			<Route path="/about" element={<About />} />
+			<Route path="/about" element={<TestingMoreOnAbout />} />
 		</Routes>
 	</BrowserRouter>,
 	document.getElementById('root')

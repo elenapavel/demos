@@ -1,25 +1,20 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const repository = 'demos';
 const publicURL = isProduction
   ? `https://elenapavel.github.io/${repository}`
   : '';
-const staticURL = isProduction ? `${publicURL}/static` : '/static';
+// const staticURL = isProduction ? `${publicURL}/static` : '/static';
 const base = isProduction ? '/demos' : '';
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src', 'index.js'),
+  entry: { index: path.resolve(__dirname, 'src', 'index.js') },
   output: {
-    path: isProduction
-      ? `/${repository}`
-      : '/' + path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, 'docs'),
     filename: 'bundle.js',
-    publicPath: publicURL,
-  },
-  devServer: {
-    historyApiFallback: true,
   },
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
@@ -38,15 +33,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: [
-                [
-                  '@babel/preset-env',
-                  {
-                    targets: 'defaults',
-                  },
-                ],
-                '@babel/preset-react',
-              ],
+              presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
         ],
@@ -54,7 +41,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -69,8 +56,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebPackPlugin({
-      template: './docs/index.html',
+      template: path.resolve(__dirname, 'src', 'index.html'),
     }),
   ],
 };
