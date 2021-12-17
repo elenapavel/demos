@@ -70,7 +70,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './docs/index.html',
     }),
   ],
 };
