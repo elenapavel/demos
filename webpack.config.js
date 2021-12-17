@@ -10,12 +10,13 @@ const staticURL = isProduction ? `${publicURL}/static` : '/static';
 const base = isProduction ? '/demos' : '';
 
 module.exports = {
+  entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: isProduction
       ? `/${repository}`
       : '/' + path.resolve(__dirname, 'docs'),
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath: publicURL,
   },
   devServer: {
     historyApiFallback: true,
@@ -30,11 +31,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(jsx|js)$/,
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: 'defaults',
+                  },
+                ],
+                '@babel/preset-react',
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,
