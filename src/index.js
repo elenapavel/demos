@@ -13,7 +13,6 @@ render(
 			<Route path="/" element={<Home />} />
 			<Route path="about" element={<About />} />
 		</Routes>
-		<HelloWorld />
 	</BrowserRouter>,
 	document.getElementById('root')
 );
