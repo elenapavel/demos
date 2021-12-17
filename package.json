@@ -26,8 +26,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode=development --open --hot",
     "build": "webpack --mode=production",
-    "export": "yarn clearcache && yarn build",
-    "deploy": "git subtree push --prefix build origin gh-pages",
+    "export": "yarn clearcache && rm -rf docs && yarn build",
     "clearcache": "rm -rf node_modules/.cache"
   }
 }
