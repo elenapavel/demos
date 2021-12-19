@@ -50,7 +50,6 @@ const App = () => {
 					<Route path={PUBLIC_URL} exact element={<Home />} />
 					<Route
 						path={`${PUBLIC_URL}/about`}
-						exact
 						element={<TestingMoreOnAbout />}
 					/>
 				</Routes>
