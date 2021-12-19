@@ -10,8 +10,6 @@ const base = isProduction ? '/demos' : '';
 
 const port = process.env.PORT || 3000;
 
-console.log(process.env);
-
 module.exports = {
   mode: 'development',
   entry: './src/index.js',

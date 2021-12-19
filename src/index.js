@@ -6,7 +6,7 @@ import { BrowserRouter, Link, Routes, Route, Outlet } from 'react-router-dom';
 import HelloWorld from './HelloWorld';
 import TestingMoreOnAbout from './TestingMoreOnAbout';
 
-import { base, PUBLIC_URL } from '~/constants';
+import { base } from '~/constants';
 
 import $ from './style.css';
 
@@ -19,7 +19,7 @@ const Home = () => (
 			<p>You can do this, I believe in you.</p>
 		</main>
 		<nav>
-			<Link to={`${PUBLIC_URL}/about`}>About</Link>
+			<Link to={`${base}/about`}>About</Link>
 		</nav>
 	</>
 );
@@ -40,21 +40,20 @@ const Home = () => (
 // const Routes = () => useRoutes(routes);
 
 const App = () => {
-	console.log(PUBLIC_URL);
+	console.log(base);
 	return (
-		<React.StrictMode>
-			<BrowserRouter>
-				<HelloWorld />
-				{/*<Routes />*/}
-				<Routes>
-					<Route path={PUBLIC_URL} exact element={<Home />} />
-					<Route
-						path={`${PUBLIC_URL}/about`}
-						element={<TestingMoreOnAbout />}
-					/>
-				</Routes>
-			</BrowserRouter>
-		</React.StrictMode>
+		<BrowserRouter>
+			<HelloWorld />
+			{/*<Routes />*/}
+			<Routes>
+				<Route path={base} exact element={<Home />} />
+				<Route
+					path={`${base}/about`}
+					exact
+					element={<TestingMoreOnAbout />}
+				/>
+			</Routes>
+		</BrowserRouter>
 	);
 };
 
