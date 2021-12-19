@@ -19,7 +19,7 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'docs'),
-    publicPath: '/demo',
+    publicPath: '/demos',
   },
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
