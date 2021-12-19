@@ -1,13 +1,13 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Link, useRoutes, Outlet } from 'react-router-dom';
 
 import HelloWorld from './HelloWorld';
 import TestingMoreOnAbout from './TestingMoreOnAbout';
 
 const isProduction = process.env.NODE_ENV === 'production';
-const base = isProduction ? '/demos' : '';
+const base = isProduction ? '/demos/' : '/';
 
 import $ from './style.css';
 
@@ -25,16 +25,27 @@ const Home = () => (
 	</>
 );
 
+const routes = [
+	{
+		path: base,
+		element: <Outlet />,
+		children: [
+			{ index: true, element: <Home /> },
+			{
+				path: '/about',
+				element: <TestingMoreOnAbout />,
+			},
+		],
+	},
+];
+
+const Routes = () => useRoutes(routes);
+
 const App = () => (
 	<React.StrictMode>
 		<BrowserRouter>
 			<HelloWorld />
-			<Routes>
-				<Route path={base}>
-					<Route path="/" element={<Home />} />
-					<Route path="/about" element={<TestingMoreOnAbout />} />
-				</Route>
-			</Routes>
+			<Routes />
 		</BrowserRouter>
 	</React.StrictMode>
 );
