@@ -6,8 +6,7 @@ import { BrowserRouter, Link, useRoutes, Outlet } from 'react-router-dom';
 import HelloWorld from './HelloWorld';
 import TestingMoreOnAbout from './TestingMoreOnAbout';
 
-const isProduction = process.env.NODE_ENV === 'production';
-const base = isProduction ? '/demos/' : '/';
+import { base } from '~/constants';
 
 import $ from './style.css';
 
@@ -20,7 +19,7 @@ const Home = () => (
 			<p>You can do this, I believe in you.</p>
 		</main>
 		<nav>
-			<Link to="/about">About</Link>
+			<Link to={`${base}about`}>About</Link>
 		</nav>
 	</>
 );
@@ -32,7 +31,7 @@ const routes = [
 		children: [
 			{ index: true, element: <Home /> },
 			{
-				path: '/about',
+				path: `about`,
 				element: <TestingMoreOnAbout />,
 			},
 		],
@@ -41,14 +40,17 @@ const routes = [
 
 const Routes = () => useRoutes(routes);
 
-const App = () => (
-	<React.StrictMode>
-		<BrowserRouter>
-			<HelloWorld />
-			<Routes />
-		</BrowserRouter>
-	</React.StrictMode>
-);
+const App = () => {
+	console.log(base);
+	return (
+		<React.StrictMode>
+			<BrowserRouter>
+				<HelloWorld />
+				<Routes />
+			</BrowserRouter>
+		</React.StrictMode>
+	);
+};
 
 const render = Component =>
 	ReactDOM.render(<Component />, document.getElementById('root'));
