@@ -27,14 +27,11 @@ const Home = () => (
 const routes = [
 	{
 		path: base,
-		element: <Outlet />,
-		children: [
-			{ index: true, element: <Home /> },
-			{
-				path: `about`,
-				element: <TestingMoreOnAbout />,
-			},
-		],
+		element: <Home />,
+	},
+	{
+		path: `${base}about`,
+		element: <TestingMoreOnAbout />,
 	},
 ];
 
