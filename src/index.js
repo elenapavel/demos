@@ -7,7 +7,7 @@ import HelloWorld from './HelloWorld';
 import TestingMoreOnAbout from './TestingMoreOnAbout';
 
 const isProduction = process.env.NODE_ENV === 'production';
-// const base = isProduction ? '/demos/' : '/';
+const base = isProduction ? '/demos' : '';
 
 import $ from './style.css';
 
@@ -30,8 +30,10 @@ const App = () => (
 		<BrowserRouter>
 			<HelloWorld />
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/about" element={<TestingMoreOnAbout />} />
+				<Route path={base}>
+					<Route path="/" element={<Home />} />
+					<Route path="/about" element={<TestingMoreOnAbout />} />
+				</Route>
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>
