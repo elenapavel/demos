@@ -27,10 +27,12 @@ const Home = () => (
 const routes = [
 	{
 		path: base,
+		exact: true,
 		element: <Home />,
 	},
 	{
 		path: `${base}about/`,
+		exect: true,
 		element: <TestingMoreOnAbout />,
 	},
 ];
