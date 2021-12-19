@@ -1,7 +1,7 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Link, useRoutes, Outlet } from 'react-router-dom';
+import { BrowserRouter, Link, Routes, Route, Outlet } from 'react-router-dom';
 
 import HelloWorld from './HelloWorld';
 import TestingMoreOnAbout from './TestingMoreOnAbout';
@@ -19,25 +19,25 @@ const Home = () => (
 			<p>You can do this, I believe in you.</p>
 		</main>
 		<nav>
-			<Link to={`${base}about/`}>About</Link>
+			<Link to={`${base}about`}>About</Link>
 		</nav>
 	</>
 );
 
-const routes = [
-	{
-		path: base,
-		exact: true,
-		element: <Home />,
-	},
-	{
-		path: `${base}about/`,
-		exect: true,
-		element: <TestingMoreOnAbout />,
-	},
-];
+// const routes = [
+// 	{
+// 		path: base,
+// 		exact: true,
+// 		element: <Home />,
+// 	},
+// 	{
+// 		path: `${base}about`,
+// 		exect: true,
+// 		element: <TestingMoreOnAbout />,
+// 	},
+// ];
 
-const Routes = () => useRoutes(routes);
+// const Routes = () => useRoutes(routes);
 
 const App = () => {
 	console.log(base);
@@ -45,7 +45,15 @@ const App = () => {
 		<React.StrictMode>
 			<BrowserRouter>
 				<HelloWorld />
-				<Routes />
+				{/*<Routes />*/}
+				<Routes>
+					<Route path={base} exact element={<Home />} />
+					<Route
+						path={`${base}about`}
+						exact
+						element={<TestingMoreOnAbout />}
+					/>
+				</Routes>
 			</BrowserRouter>
 		</React.StrictMode>
 	);
