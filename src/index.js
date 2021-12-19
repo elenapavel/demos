@@ -8,6 +8,8 @@ import TestingMoreOnAbout from './TestingMoreOnAbout';
 
 import $ from './style.css';
 
+import './defaults.css';
+
 const Home = () => (
 	<>
 		<main className={$.main}>

@@ -18,11 +18,6 @@ module.exports = {
     filename: 'bundle.[hash].js',
     publicPath: '/',
   },
-  // output: {
-
-  //   path: path.resolve(__dirname, 'docs'),
-  //   filename: 'bundle.js',
-  // },
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
     alias: {
