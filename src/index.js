@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import HelloWorld from './HelloWorld';
 import TestingMoreOnAbout from './TestingMoreOnAbout';
 
+const isProduction = process.env.NODE_ENV === 'production';
+const base = isProduction ? '/demos/' : '/';
+
 import $ from './style.css';
 
 import './defaults.css';
@@ -26,8 +29,8 @@ const App = () => (
 	<BrowserRouter>
 		<HelloWorld />
 		<Routes>
-			<Route path="/" element={<Home />} />
-			<Route path="/about" element={<TestingMoreOnAbout />} />
+			<Route path={base} element={<Home />} />
+			<Route path={`${base}about`} element={<TestingMoreOnAbout />} />
 		</Routes>
 	</BrowserRouter>
 );
