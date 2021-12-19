@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -10,6 +9,8 @@ const publicURL = isProduction
 const base = isProduction ? '/demos' : '';
 
 const port = process.env.PORT || 3000;
+
+console.log(process.env);
 
 module.exports = {
   mode: 'development',
@@ -63,7 +64,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: 'src/index.html',
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
 };
 module.exports.optimization = {
