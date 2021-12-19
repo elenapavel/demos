@@ -19,7 +19,7 @@ const Home = () => (
 			<p>You can do this, I believe in you.</p>
 		</main>
 		<nav>
-			<Link to={`${base}about`}>About</Link>
+			<Link to={`${base}about/`}>About</Link>
 		</nav>
 	</>
 );
