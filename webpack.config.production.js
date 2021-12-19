@@ -3,13 +3,13 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const isProduction = process.env.NODE_ENV === 'production';
-const repository = 'demos';
-const publicURL = isProduction
-  ? `https://elenapavel.github.io/${repository}`
-  : '';
+// const isProduction = process.env.NODE_ENV === 'production';
+// const repository = 'demos';
+// const publicURL = isProduction
+//   ? `https://elenapavel.github.io/${repository}`
+//   : '';
 // const staticURL = isProduction ? `${publicURL}/static` : '/static';
-const base = isProduction ? '/demos' : '';
+// const base = isProduction ? '/demos' : '/';
 
 const port = process.env.PORT || 3000;
 
@@ -19,7 +19,7 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'docs'),
-    publicPath: '/',
+    publicPath: '/demo',
   },
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
