@@ -1,5 +1,6 @@
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import HelloWorld from './HelloWorld';
@@ -19,13 +20,17 @@ const Home = () => (
 	</>
 );
 
-render(
+const App = () => (
 	<BrowserRouter>
 		<HelloWorld />
 		<Routes>
-			<Route path="/" exact element={<Home />} />
+			<Route path="/" element={<Home />} />
 			<Route path="/about" element={<TestingMoreOnAbout />} />
 		</Routes>
-	</BrowserRouter>,
-	document.getElementById('root')
+	</BrowserRouter>
 );
+
+const render = Component =>
+	ReactDOM.render(<Component />, document.getElementById('root'));
+
+render(hot(App));

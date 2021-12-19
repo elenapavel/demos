@@ -1,32 +1,47 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const repository = 'demos';
 const publicURL = isProduction
   ? `https://elenapavel.github.io/${repository}`
   : '';
-// const staticURL = isProduction ? `${publicURL}/static` : '/static';
 const base = isProduction ? '/demos' : '';
 
+const port = process.env.PORT || 3000;
+
 module.exports = {
-  entry: { index: path.resolve(__dirname, 'src', 'index.js') },
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'docs'),
-    filename: 'bundle.js',
+    filename: 'bundle.[hash].js',
+    publicPath: '/',
   },
+  // output: {
+
+  //   path: path.resolve(__dirname, 'docs'),
+  //   filename: 'bundle.js',
+  // },
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
     alias: {
-      react: path.join(__dirname, 'node_modules', 'react'),
+      'react-dom': '@hot-loader/react-dom',
       '~': path.join(__dirname, 'src'),
     },
   },
+  devServer: {
+    host: 'localhost',
+    port: port,
+    historyApiFallback: true,
+    open: true,
+    hot: true,
+  },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js)$/,
         exclude: /node_modules/,
         use: [
           {
@@ -37,14 +52,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
-              modules: {
-                localIdentName: '[local]_[hash:base64:5]',
-              },
-              importLoaders: 1,
+              modules: true,
+              sourceMap: true,
             },
           },
         ],
@@ -52,10 +65,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin(),
     new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html'),
+      template: 'src/index.html',
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 };
 module.exports.optimization = {
