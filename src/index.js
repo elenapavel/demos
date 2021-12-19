@@ -19,7 +19,7 @@ const Home = () => (
 			<p>You can do this, I believe in you.</p>
 		</main>
 		<nav>
-			<Link to={`${base}about`}>About</Link>
+			<Link to={`${base}/about`}>About</Link>
 		</nav>
 	</>
 );
@@ -49,7 +49,7 @@ const App = () => {
 				<Routes>
 					<Route path={base} exact element={<Home />} />
 					<Route
-						path={`${base}about`}
+						path={`${base}/about`}
 						exact
 						element={<TestingMoreOnAbout />}
 					/>
