@@ -100,19 +100,19 @@ module.exports = {
       inject: 'head',
     }),
     new HtmlWebPackPlugin({
-      filename: 'home.html',
+      filename: 'home/index.html',
       chunks: ['home'],
       template: './src/index.html',
       inject: 'head',
     }),
     new HtmlWebPackPlugin({
-      filename: 'flamingo.html',
+      filename: 'flamingo/index.html',
       chunks: ['flamingo'],
       template: './src/index.html',
       inject: 'head',
     }),
     new HtmlWebPackPlugin({
-      filename: 'flamingo/services.html',
+      filename: 'flamingo/services/index.html',
       chunks: ['flamingo/services'],
       template: './src/index.html',
       inject: 'head',
