@@ -24,6 +24,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
     "cssnano": "^5.0.13",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",
     "postcss": "^8.4.5",
@@ -39,10 +40,12 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.development.js",
+    "clearcache": "rm -rf node_modules/.cache",
+    "prebuild": "rm -rf build",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
     "build-dll": "webpack --config webpack.config.dll.js",
-    "export": "yarn clearcache && yarn prebuild && yarn build-dll && yarn build",
-    "clearcache": "rm -rf node_modules/.cache",
-    "prebuild": "rm -rf docs"
+    "prepare": "yarn clearcache && yarn prebuild && yarn build-dll && yarn build",
+    "export": "gh-pages -d build",
+    "deploy": "yarn prepare && yarn export"
   }
 }
