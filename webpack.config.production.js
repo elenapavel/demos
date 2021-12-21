@@ -7,7 +7,12 @@ const port = process.env.PORT || 3000;
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+    home: './src/pages/Home/index.js',
+    flamingo: './src/pages/Flamingo/Home/index.js',
+    'flamingo/services': './src/pages/Flamingo/Services/index.js',
+  },
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'docs'),
