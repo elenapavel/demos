@@ -7,7 +7,7 @@ import Routes from '~/pages/Routes';
 import './defaults.css';
 
 ReactDOM.render(
-	<BrowserRouter>
+	<BrowserRouter forceRefresh>
 		<Routes />
 	</BrowserRouter>,
 	document.getElementById('root')

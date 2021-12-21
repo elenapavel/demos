@@ -39,18 +39,19 @@ module.exports = {
     extensions: ['.js', '.css', '.scss'],
   },
   optimization: {
-    splitChunks: {
-      // chunks: 'all',
-      chunks: ['flamingo', 'flamingo/services'],
-      cacheGroups: {
-        flamingo: {
-          type: 'css/mini-extract',
-          name: 'flamingo',
-          chunks: ['flamingo', 'flamingo/services'],
-          enforce: true,
-        },
-      },
-    },
+    sideEffects: true,
+    minimize: false,
+    // splitChunks: {
+    //   // chunks: 'all',
+    //   // chunks: ['flamingo', 'flamingo/services'],
+    //   cacheGroups: {
+    //     flamingo: {
+    //       type: 'css/mini-extract',
+    //       name: 'flamingoCSS',
+    //       enforce: true,
+    //     },
+    //   },
+    // },
   },
   devtool: 'inline-source-map',
   module: {
@@ -126,8 +127,8 @@ module.exports = {
       inject: 'head',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[name].css',
+      filename: '[name]/style.css',
+      chunkFilename: '[name]/style.css',
     }),
     new CopyPlugin({
       patterns: [{ from: 'public', to: 'static' }],
@@ -137,8 +138,4 @@ module.exports = {
       manifest: require('./vendor/vendor-manifest.json'),
     }),
   ],
-};
-module.exports.optimization = {
-  sideEffects: false,
-  minimize: false,
 };
