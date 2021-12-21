@@ -82,7 +82,20 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: 'src/index.html',
+      filename: 'index.html',
+      chunks: ['app'],
+    }),
+    new HtmlWebPackPlugin({
+      filename: 'home.html',
+      chunks: ['home'],
+    }),
+    new HtmlWebPackPlugin({
+      filename: 'flamingo.html',
+      chunks: ['flamingo'],
+    }),
+    new HtmlWebPackPlugin({
+      filename: 'flamingo/services.html',
+      chunks: ['flamingo/services'],
     }),
     new MiniCssExtractPlugin(),
     new CopyPlugin({
