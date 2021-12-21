@@ -18,6 +18,7 @@ module.exports = {
       dependOn: 'app',
       import: './src/pages/Flamingo/Home/index.js',
     },
+    flamingo: './src/pages/Flamingo/style.scss',
     'flamingo/services': {
       dependOn: 'flamingo',
       import: './src/pages/Flamingo/Services/index.js',
@@ -35,10 +36,20 @@ module.exports = {
       '~c': path.join(__dirname, 'src', 'components'),
       '~s': path.join(__dirname, 'src', 'sections'),
     },
+    extensions: ['.js', '.css', '.scss'],
   },
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      // chunks: 'all',
+      chunks: ['flamingo', 'flamingo/services'],
+      cacheGroups: {
+        flamingo: {
+          type: 'css/mini-extract',
+          name: 'flamingo',
+          chunks: ['flamingo', 'flamingo/services'],
+          enforce: true,
+        },
+      },
     },
   },
   devtool: 'inline-source-map',
@@ -73,7 +84,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -114,7 +125,10 @@ module.exports = {
       template: './src/index.html',
       inject: 'head',
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[name].css',
+    }),
     new CopyPlugin({
       patterns: [{ from: 'public', to: 'static' }],
     }),
