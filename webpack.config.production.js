@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 
@@ -79,6 +80,9 @@ module.exports = {
       template: 'src/index.html',
     }),
     new MiniCssExtractPlugin(),
+    new CopyPlugin({
+      patterns: [{ from: 'public', to: 'static' }],
+    }),
   ],
 };
 module.exports.optimization = {

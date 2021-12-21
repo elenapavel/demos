@@ -4,4 +4,6 @@ import { base as projectBase } from '~/constants';
 
 export const base = isProduction ? `${projectBase}flamingo/` : '/flamingo/';
 
-export const PUBLIC_URL = '/flamingo';
+export const PUBLIC_URL = isProduction
+	? `${projectBase}/static/flamingo`
+	: '/flamingo';
