@@ -1,6 +1,8 @@
+import { base, PUBLIC_URL } from '~/constants/flamingo';
+
 export default {
 	header: {
-		image: '/flamingo/home.jpeg',
+		image: `${PUBLIC_URL}/home.jpeg`,
 		heading: 'We are digital agency.',
 		description: 'CREATIVE MIND, CREATIVE WORKS.',
 		action: {
