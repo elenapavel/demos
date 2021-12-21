@@ -12,7 +12,7 @@ const routes = [
 		element: <Home />,
 	},
 	{
-		path: `${base}flamingo`,
+		path: `${base}flamingo/`,
 		element: <Flamingo />,
 		children: flamingoRoutes,
 	},

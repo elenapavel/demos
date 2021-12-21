@@ -46,23 +46,23 @@ export default {
 		},
 		{
 			name: 'services',
-			route: `${base}services`,
+			route: `${base}services/`,
 		},
 		{
 			name: 'works',
-			route: `${base}works`,
+			route: `${base}works/`,
 		},
 		{
 			name: 'about',
-			route: `${base}about`,
+			route: `${base}about/`,
 		},
 		{
 			name: 'blog',
-			route: `${base}blog`,
+			route: `${base}blog/`,
 		},
 		{
 			name: 'contact us',
-			route: `${base}contact-us`,
+			route: `${base}contact-us/`,
 			isButton: true,
 		},
 	],

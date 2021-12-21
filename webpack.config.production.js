@@ -14,7 +14,10 @@ module.exports = {
       dependOn: 'app',
       import: './src/pages/Home/index.js',
     },
-    flamingo: './src/pages/Flamingo/Home/index.js',
+    flamingo: {
+      dependOn: 'app',
+      import: './src/pages/Flamingo/Home/index.js',
+    },
     'flamingo/services': {
       dependOn: 'flamingo',
       import: './src/pages/Flamingo/Services/index.js',

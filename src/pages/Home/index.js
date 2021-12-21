@@ -8,7 +8,7 @@ import $ from './style.css';
 const Home = () => (
 	<b>
 		home
-		<Link to={`${base}flamingo`}>Flamingo</Link>
+		<Link to={`${base}flamingo/`}>Flamingo</Link>
 	</b>
 );
 

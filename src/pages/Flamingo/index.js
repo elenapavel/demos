@@ -15,23 +15,23 @@ import data, { pages } from './db/data';
 export const routes = [
 	{ index: true, element: <Home {...pages.home} /> },
 	{
-		path: `services`,
+		path: `services/`,
 		element: <Services />,
 	},
 	{
-		path: `works`,
+		path: `works/`,
 		element: <Services />,
 	},
 	{
-		path: `about`,
+		path: `about/`,
 		element: <Services />,
 	},
 	{
-		path: `blog`,
+		path: `blog/`,
 		element: <Services />,
 	},
 	{
-		path: `contact-us`,
+		path: `contact-us/`,
 		element: <Services />,
 	},
 ];
