@@ -98,12 +98,6 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       filename: 'index.html',
-      chunks: ['app'],
-      template: './src/index.html',
-      inject: 'head',
-    }),
-    new HtmlWebPackPlugin({
-      filename: 'home/index.html',
       chunks: ['app', 'home'],
       template: './src/index.html',
       inject: 'head',
