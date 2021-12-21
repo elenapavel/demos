@@ -96,18 +96,26 @@ module.exports = {
     new HtmlWebPackPlugin({
       filename: 'index.html',
       chunks: ['app'],
+      template: './src/index.html',
+      inject: 'head',
     }),
     new HtmlWebPackPlugin({
       filename: 'home.html',
       chunks: ['home'],
+      template: './src/index.html',
+      inject: 'head',
     }),
     new HtmlWebPackPlugin({
       filename: 'flamingo.html',
       chunks: ['flamingo'],
+      template: './src/index.html',
+      inject: 'head',
     }),
     new HtmlWebPackPlugin({
       filename: 'flamingo/services.html',
       chunks: ['flamingo/services'],
+      template: './src/index.html',
+      inject: 'head',
     }),
     new MiniCssExtractPlugin(),
     new CopyPlugin({
