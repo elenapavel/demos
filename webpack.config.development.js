@@ -20,8 +20,9 @@ module.exports = {
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
     alias: {
-      'react-dom': '@hot-loader/react-dom',
       '~': path.join(__dirname, 'src'),
+      '~c': path.join(__dirname, 'src', 'components'),
+      '~s': path.join(__dirname, 'src', 'sections'),
     },
   },
   devServer: {
@@ -50,7 +51,32 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                localIdentName: '[local]__[hash:base64]',
+              },
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]__[hash:base64]',
+              },
+              sourceMap: true,
+              importLoaders: 2,
+            },
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
               sourceMap: true,
             },
           },

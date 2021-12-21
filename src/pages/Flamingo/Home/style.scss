@@ -1,0 +1,22 @@
+.header {
+	padding: calc(var(--space-l) * 2) 0 var(--space-l);
+	background-position: center;
+	background-size: cover;
+}
+
+.works {
+	display: flex;
+	height: 500px;
+}
+
+.work {
+	flex-grow: 1;
+	height: 100%;
+
+	transition: var(--transition);
+	transition-property: flex-grow;
+
+	&:hover {
+		flex-grow: 3;
+	}
+}

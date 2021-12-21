@@ -1,0 +1,33 @@
+.hover_b {
+	transition: var(--transition);
+	transition-property: border-color;
+	border: 3px solid transparent;
+
+	&:hover {
+		border-color: var(--teal);
+	}
+}
+
+.hover_bg {
+	transition: var(--transition);
+	transition-property: background-color;
+	border-bottom: 4px solid var(--white);
+
+	* {
+		transition: var(--transition);
+		transition-property: color;
+	}
+
+	&:hover {
+		background-color: var(--teal);
+
+		* {
+			color: var(--grey);
+		}
+	}
+}
+
+.work {
+	background-position: center;
+	background-size: cover;
+}

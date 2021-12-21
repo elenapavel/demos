@@ -15,8 +15,9 @@ module.exports = {
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
     alias: {
-      'react-dom': '@hot-loader/react-dom',
       '~': path.join(__dirname, 'src'),
+      '~c': path.join(__dirname, 'src', 'components'),
+      '~s': path.join(__dirname, 'src', 'sections'),
     },
   },
   devtool: 'inline-source-map',
@@ -40,10 +41,16 @@ module.exports = {
             options: {
               modules: true,
               sourceMap: true,
-              importLoaders: 1,
+              importLoaders: 2,
             },
           },
           'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
     ],

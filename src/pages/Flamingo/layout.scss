@@ -1,0 +1,144 @@
+:global {
+	.container {
+		max-width: var(--container);
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 15px;
+	}
+
+	.section {
+		padding: var(--space-l) 0;
+	}
+
+	.p-default {
+		padding: var(--space-default);
+	}
+
+	.py-m {
+		padding: var(--space-m) 0;
+	}
+
+	.p-m {
+		padding: var(--space-m);
+	}
+
+	.mb-default {
+		margin-bottom: var(--space-default);
+	}
+
+	.mb-m {
+		margin-bottom: var(--space-m);
+	}
+
+	.mb-l {
+		margin-bottom: var(--space-l);
+	}
+
+	.width-50 {
+		width: 50%;
+	}
+
+	.width-80 {
+		width: 80%;
+	}
+
+	.w-100 {
+		width: 100%;
+	}
+
+	.pt-100 {
+		padding-top: 100%;
+	}
+
+	.separator {
+		width: 50px;
+		border-top: 2px solid var(--teal);
+		vertical-align: middle;
+	}
+
+	b.separator {
+		margin-top: var(--space-default);
+		margin-bottom: var(--space-default);
+	}
+
+	i.separator {
+		margin-right: var(--space-default);
+	}
+
+	.columns-2 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.columns-2 .column {
+		width: calc(50% - var(--space-default) / 2);
+	}
+
+	.columns-2-v {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+	}
+	.columns-2-v .column {
+		width: 100%;
+		height: calc(50% - var(--space-default) / 2);
+	}
+
+	.columns-4 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.columns-4 .column {
+		width: calc(25% - var(--space-default) * 3 / 4);
+	}
+
+	.columns-3 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.columns-3 .column {
+		width: calc(100% / 3 - var(--space-default) * 2 / 3);
+		margin-bottom: var(--space-default);
+	}
+
+	.columns-6 {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.columns-6 .column {
+		width: calc(100% / 6);
+	}
+
+	.flex {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	.flex-between {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: var(--overlay);
+		opacity: 0;
+		transition: all 0.2s ease-in-out;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
