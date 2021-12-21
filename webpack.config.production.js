@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 const port = process.env.PORT || 3000;
 
@@ -9,9 +10,15 @@ module.exports = {
   mode: 'production',
   entry: {
     app: './src/index.js',
-    home: './src/pages/Home/index.js',
+    home: {
+      dependOn: 'app',
+      import: './src/pages/Home/index.js',
+    },
     flamingo: './src/pages/Flamingo/Home/index.js',
-    'flamingo/services': './src/pages/Flamingo/Services/index.js',
+    'flamingo/services': {
+      dependOn: 'flamingo',
+      import: './src/pages/Flamingo/Services/index.js',
+    },
   },
   output: {
     filename: '[name].[hash].js',
@@ -24,6 +31,11 @@ module.exports = {
       '~': path.join(__dirname, 'src'),
       '~c': path.join(__dirname, 'src', 'components'),
       '~s': path.join(__dirname, 'src', 'sections'),
+    },
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
     },
   },
   devtool: 'inline-source-map',
@@ -100,6 +112,10 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new CopyPlugin({
       patterns: [{ from: 'public', to: 'static' }],
+    }),
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./vendor/vendor-manifest.json'),
     }),
   ],
 };

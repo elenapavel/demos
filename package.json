@@ -40,7 +40,8 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.development.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
-    "export": "yarn clearcache && yarn prebuild && yarn build",
+    "build-dll": "webpack --config webpack.config.dll.js",
+    "export": "yarn clearcache && yarn prebuild && yarn build-dll && yarn build",
     "clearcache": "rm -rf node_modules/.cache",
     "prebuild": "rm -rf docs"
   }
