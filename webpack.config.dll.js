@@ -8,7 +8,7 @@ module.exports = {
   },
   mode: 'production',
   output: {
-    path: path.join(__dirname, 'docs'),
+    path: path.join(__dirname, 'build'),
     filename: '[name].js',
     library: '[name]',
   },
