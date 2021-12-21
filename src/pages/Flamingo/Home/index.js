@@ -12,9 +12,14 @@ const FlamingoHome = ({ header = {}, sections = [] }) => (
 			style={{ backgroundImage: `url(${header.image})` }}
 		>
 			<b className="container mb-l">
-				<h5 className="mb-m">{header.description}</h5>
-				<h1 className="mb-m">{header.heading}</h1>
-				<Button link={header.action.link} text={header.action.text} />
+				<b className="width-50">
+					<h5 className="mb-m">{header.description}</h5>
+					<h1 className="mb-m">{header.heading}</h1>
+					<Button
+						link={header.action.link}
+						text={header.action.text}
+					/>
+				</b>
 			</b>
 			<b className="container">
 				<b className="columns-3">
